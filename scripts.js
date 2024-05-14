@@ -1,6 +1,11 @@
 function generateQrCode() {
-    text = document.getElementById('text-input').value
-    qrcode = new QRCode(text)
+    qrcode = new QRCode({
+        msg: document.getElementById('message').value,
+        dim: document.getElementById('dimensions').value,
+        pad: document.getElementById('padding').value,
+        pal: !document.getElementById('background-transparent').checked ? [document.getElementById('color').value, document.getElementById('background-color').value] : [document.getElementById('color').value]
+    })
+    document.getElementById("box-qr").innerHTML = '';
     document.getElementById("box-qr").appendChild(qrcode);
 }
 

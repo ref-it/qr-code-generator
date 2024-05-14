@@ -10,16 +10,36 @@
         <div id="box">
             <div id="box-inner">
                 <div>
-                    <input id="text-input" type="text" />
+                    <div class="input-container">
+                        <label>Text</label>
+                        <input id="message" type="text" />
+                    </div>
+                    <div class="input-container">
+                        <label>Höhe/Breite / Height/Width</label>
+                        <input id="dimensions" type="number" value="256" />
+                    </div>
+                    <div class="input-container">
+                        <label>Rand / Padding</label>
+                        <input id="padding" type="number" value="2" />
+                    </div>
+                    <div class="input-container">
+                        <label>Farbe / Color</label>
+                        <input id="color" type="color" value="#000000" />
+                    </div>
+                    <div class="input-container">
+                        <label>Hintergrund / Background Color</label>
+                        <input id="background-color" type="color" value="#ffffff" />
+                        <input id="background-transparent" type="checkbox" checked> transparent
+                    </div>
+                    <hr />
                     <button onclick="generateQrCode()">Generieren / Generate</button>
                 </div>
-                <hr />
-                <div id="box-qr">
-
-                </div>
-                <hr />
                 <div>
-                    <button onclick="downloadSVG()">SVG herunterladen / Download SVG</button>
+                    <div id="box-qr"></div>
+                    <hr />
+                    <div>
+                        <button onclick="downloadSVG()">SVG herunterladen / Download SVG</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -16,12 +16,22 @@ html, body {
 }
 
 #box-inner {
+    display: grid;
+    grid-template-columns: auto auto;
     margin: 1rem;
     border-radius: .5rem;
     padding: 2rem;
     box-shadow: 0 0 4px rgba(0,0,0,.1);
     background-color: #ffffff;
-    text-align: center;
+}
+
+#box-inner > div:first-of-type {
+    padding-right: 1.5rem;
+}
+
+#box-inner > div:last-of-type {
+    padding-left: 1.5rem;
+    border-left: 1px solid #dfdfdf;
 }
 
 #box-qr {
@@ -31,6 +41,19 @@ html, body {
     border: 1px solid #dfdfdf;
 }
 
+#box-qr svg {
+    height: 256px;
+    width: 256px;
+}
+
+.input-container {
+    margin-bottom: 1.5rem;
+}
+
+.input-container:last-of-type {
+    margin-bottom: 0;
+}
+
 input {
     padding: .5rem .75rem;
     border-radius: .375rem;
@@ -38,6 +61,7 @@ input {
 }
 
 button {
+    width: 100%;
     padding: .5rem .75rem;
     border-radius: .375rem;
     border: 1px solid #dfdfdf;
@@ -48,6 +72,12 @@ hr {
     margin: 1.5rem 0;
     border: none;
     border-bottom: 1px solid #dfdfdf;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin: 0 0 .5rem 0;
 }
 
 a[download="qr-code.svg"] {
