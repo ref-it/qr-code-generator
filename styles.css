@@ -48,3 +48,7 @@ hr {
     border: none;
     border-bottom: 1px solid #dfdfdf;
 }
+
+a[download="qr-code.svg"] {
+    display: none;
+}
