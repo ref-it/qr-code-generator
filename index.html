@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QR-Code-Generator</title>
+        <meta charset="utf-8" />
+        <link type="text/css" href="styles.css" rel="stylesheet" />
+        <script src="qrcode.min.js"></script>
+    </head>
+    <body>
+        <div id="box">
+            <div id="box-inner">
+                <div>
+                    <input id="text-input" type="text" />
+                    <button onclick="generateQrCode()">Generieren / Generate</button>
+                </div>
+                <hr />
+                <div id="box-qr">
+
+                </div>
+                <hr />
+                <div>
+                    <button onclick="downloadSVG()">SVG herunterladen / Download SVG</button>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>
