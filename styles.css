@@ -60,6 +60,10 @@ input {
     border: 1px solid #dfdfdf;
 }
 
+input[type="color"] {
+    padding: .25rem;
+}
+
 button {
     width: 100%;
     padding: .5rem .75rem;
