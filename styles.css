@@ -61,6 +61,11 @@ input {
     border: 1px solid #dfdfdf;
 }
 
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 1.7rem);
+}
+
 input[type="color"] {
     padding: .25rem;
     margin-right: 1rem;
@@ -103,4 +108,38 @@ a[download="qr-code.svg"] {
 
 #footer > div:last-of-type {
     margin-left: auto;
+}
+
+@media screen and (max-width: 680px) {
+    #box {
+        width: 100%;
+    }
+
+    #box-inner {
+        grid-template-columns: 1fr;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #box-inner > div {
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    #box-inner > div:first-of-type {
+        padding-bottom: 1.5rem !important;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #dfdfdf !important;
+    }
+
+    #footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #footer > div:last-of-type {
+        margin-left: 0;
+        margin-top: .5rem;
+    }
 }
