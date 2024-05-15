@@ -1,0 +1,1 @@
+Header set Content-Security-Policy "default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self';"

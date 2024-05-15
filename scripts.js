@@ -17,3 +17,6 @@ function downloadSVG() {
     document.body.appendChild(fileLink)
     fileLink.click()
 }
+
+document.getElementById('btn-generate').addEventListener("click", () => generateQrCode());
+document.getElementById('btn-download-svg').addEventListener("click", () => downloadSVG());
