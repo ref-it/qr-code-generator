@@ -28,6 +28,7 @@ html, body {
 
 #box-inner > div:first-of-type {
     padding-right: 1.5rem;
+    width: 20rem;
 }
 
 #box-inner > div:last-of-type {
@@ -110,7 +111,7 @@ a[download="qr-code.svg"] {
     margin-left: auto;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 785px) {
     #box {
         width: 100%;
     }
@@ -128,6 +129,7 @@ a[download="qr-code.svg"] {
     }
 
     #box-inner > div:first-of-type {
+        width: 100%;
         padding-bottom: 1.5rem !important;
         margin-bottom: 1.5rem;
         border-bottom: 1px solid #dfdfdf !important;
