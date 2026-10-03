@@ -4,6 +4,7 @@
         <title>QR-Code-Generator</title>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta name="theme-color" content="#ffffff" />
         <link type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link type="text/css" href="node_modules/@fontsource/adwaita-sans/latin-400.css" rel="stylesheet" />
         <link type="text/css" href="node_modules/@fontsource/adwaita-sans/latin-700.css" rel="stylesheet" />
@@ -13,20 +14,22 @@
     <body class="bg-body-tertiary d-flex flex-column min-vh-100">
         <a class="visually-hidden-focusable position-absolute m-2 p-2 bg-white" href="#main" data-i18n="skip">Zum Inhalt springen</a>
         <header class="navbar border-bottom bg-body">
-            <div class="container d-flex align-items-center justify-content-between py-2">
-                <h1 class="h5 mb-0">QR-Code-Generator</h1>
-                <div>
-                    <label for="language" class="visually-hidden" data-i18n="language">Sprache</label>
-                    <select id="language" class="form-select form-select-sm">
-                        <option value="de" lang="de">Deutsch</option>
-                        <option value="en" lang="en">English</option>
-                    </select>
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between px-3 py-2 w-100">
+                    <h1 class="h5 fw-bold mb-0">QR-Code-Generator</h1>
+                    <div>
+                        <label for="language" class="visually-hidden" data-i18n="language">Sprache</label>
+                        <select id="language" class="form-select form-select-sm">
+                            <option value="de" lang="de" title="Deutsch">DE</option>
+                            <option value="en" lang="en" title="English">EN</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </header>
         <main id="main" class="container my-auto py-4">
-            <div class="card bg-transparent border-0 mx-auto">
-                <div class="card-body p-4">
+            <div class="card bg-transparent border-0">
+                <div class="card-body p-3">
                     <div class="row g-4">
                         <div class="col-md-6">
                             <form id="form" novalidate>
@@ -88,12 +91,14 @@
             </div>
         </main>
         <footer class="border-top py-3 small">
-            <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2 text-center">
-                <nav aria-label="Rechtliches" data-i18n-aria="legal" class="d-flex gap-3">
-                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://www.stura-ilmenau.de/impressum" target="_blank" rel="noopener noreferrer"><span data-i18n="imprint">Impressum</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
-                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://www.stura-ilmenau.de/datenschutz" target="_blank" rel="noopener noreferrer"><span data-i18n="privacy">Datenschutz</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
-                </nav>
-                <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://github.com/ref-it/qr-code-generator" target="_blank" rel="noopener noreferrer"><span data-i18n="source">Quellcode</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
+            <div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-2 px-3 text-center">
+                    <nav aria-label="Rechtliches" data-i18n-aria="legal" class="d-flex gap-3">
+                        <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://www.stura-ilmenau.de/impressum" target="_blank" rel="noopener noreferrer"><span data-i18n="imprint">Impressum</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
+                        <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://www.stura-ilmenau.de/datenschutz" target="_blank" rel="noopener noreferrer"><span data-i18n="privacy">Datenschutz</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
+                    </nav>
+                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://github.com/ref-it/qr-code-generator" target="_blank" rel="noopener noreferrer"><span data-i18n="source">Quellcode</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
+                </div>
             </div>
         </footer>
 

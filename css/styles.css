@@ -2,7 +2,7 @@ body {
     --bs-body-font-family: 'Adwaita Sans', ui-sans-serif, sans-serif;
 }
 
-.card {
+.container {
     max-width: 52rem;
 }
 
