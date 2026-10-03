@@ -1,58 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
     <head>
         <title>QR-Code-Generator</title>
         <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link type="text/css" href="node_modules/@fontsource/adwaita-sans/latin-400.css" rel="stylesheet" />
+        <link type="text/css" href="node_modules/@fontsource/adwaita-sans/latin-700.css" rel="stylesheet" />
         <link type="text/css" href="css/styles.css" rel="stylesheet" />
-        <script src="js/qrcode.min.js"></script>
+        <script src="node_modules/qrcode-svg/dist/qrcode.min.js"></script>
     </head>
-    <body>
-        <div id="box">
-            <div id="box-inner">
+    <body class="bg-body-tertiary d-flex flex-column min-vh-100">
+        <a class="visually-hidden-focusable position-absolute m-2 p-2 bg-white" href="#main" data-i18n="skip">Zum Inhalt springen</a>
+        <header class="navbar border-bottom bg-body">
+            <div class="container d-flex align-items-center justify-content-between py-2">
+                <h1 class="h5 mb-0">QR-Code-Generator</h1>
                 <div>
-                    <div class="input-container">
-                        <label>Text</label>
-                        <input id="message" type="text" />
-                    </div>
-                    <div class="input-container">
-                        <label>Höhe/Breite / Height/Width</label>
-                        <input id="dimensions" type="number" value="256" />
-                    </div>
-                    <div class="input-container">
-                        <label>Rand / Padding</label>
-                        <input id="padding" type="number" value="2" />
-                    </div>
-                    <div class="input-container">
-                        <label>Farbe / Color</label>
-                        <input id="color" type="color" value="#000000" />
-                    </div>
-                    <div class="input-container">
-                        <label>Hintergrund / Background Color</label>
-                        <input id="background-color" type="color" value="#ffffff" />
-                        <input id="background-transparent" type="checkbox" checked> transparent
-                    </div>
-                    <hr />
-                    <button id="btn-generate">Generieren / Generate</button>
-                </div>
-                <div>
-                    <div id="box-qr"></div>
-                    <hr />
-                    <div>
-                        <button id="btn-download-svg">SVG herunterladen / Download SVG</button>
-                    </div>
+                    <label for="language" class="visually-hidden" data-i18n="language">Sprache</label>
+                    <select id="language" class="form-select form-select-sm">
+                        <option value="de" lang="de">Deutsch</option>
+                        <option value="en" lang="en">English</option>
+                    </select>
                 </div>
             </div>
-        </div>
-        <div id="footer">
-            <div>
-                <a href="https://www.stura-ilmenau.de/impressum" target="_blank" rel="noopener noreferrer">Impressum / Imprint</a>&nbsp; |&nbsp; <a href="https://www.stura-ilmenau.de/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz / Privacy Policy</a>
+        </header>
+        <main id="main" class="container my-auto py-4">
+            <div class="card bg-transparent border-0 mx-auto">
+                <div class="card-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <form id="form" novalidate>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label" data-i18n="text">Text</label>
+                                    <input id="message" class="form-control" type="text" required aria-describedby="message-error" autocomplete="off" />
+                                    <div id="message-error" class="invalid-feedback"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="dimensions" class="form-label" data-i18n="dimensions">Höhe/Breite</label>
+                                    <div class="input-group has-validation">
+                                        <input id="dimensions" class="form-control" type="number" value="256" min="32" max="2048" inputmode="numeric" aria-describedby="dimensions-unit dimensions-error" />
+                                        <span id="dimensions-unit" class="input-group-text">px</span>
+                                        <div id="dimensions-error" class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="padding" class="form-label" data-i18n="padding">Rand</label>
+                                    <div class="input-group has-validation">
+                                        <input id="padding" class="form-control" type="number" value="2" min="0" max="20" inputmode="numeric" aria-describedby="padding-unit padding-error" />
+                                        <span id="padding-unit" class="input-group-text" data-i18n="modules">Felder</span>
+                                        <div id="padding-error" class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="color" class="form-label" data-i18n="color">Farbe</label>
+                                    <input id="color" class="form-control form-control-color" type="color" value="#000000" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="background-color" class="form-label" data-i18n="backgroundColor">Hintergrund</label>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <input id="background-color" class="form-control form-control-color" type="color" value="#ffffff" disabled />
+                                        <div class="form-check">
+                                            <input id="background-transparent" class="form-check-input" type="checkbox" checked />
+                                            <label for="background-transparent" class="form-check-label" data-i18n="transparent">transparent</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="btn-generate" class="btn btn-dark w-100" type="submit"><img class="icon icon-invert me-2" src="node_modules/lucide-static/icons/qr-code.svg" alt="" /><span data-i18n="generate">Generieren</span></button>
+                            </form>
+                        </div>
+                        <div class="col-md-6 border-md-start ps-md-4">
+                            <div class="mb-3">
+                                <p id="status-sr" role="status" class="visually-hidden"></p>
+                                <div id="box-qr" class="d-flex justify-content-center align-items-center border rounded bg-body"></div>
+                            </div>
+                            <label for="download-format" class="visually-hidden" data-i18n="format">Format</label>
+                            <div class="input-group">
+                                <select id="download-format" class="form-select flex-grow-0 w-auto">
+                                    <option value="svg">SVG</option>
+                                    <option value="png">PNG</option>
+                                    <option value="webp">WebP</option>
+                                </select>
+                                <button id="btn-download" class="btn btn-dark flex-grow-1" type="button" disabled><img class="icon icon-invert me-2" src="node_modules/lucide-static/icons/download.svg" alt="" /><span data-i18n="download">Herunterladen</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                v0.2.0&nbsp; |&nbsp; <a href="https://github.com/ref-it/qr-code-generator" target="_blank" rel="noopener noreferrer">Quellcode / Source Code</a>
+        </main>
+        <footer class="border-top py-3 small">
+            <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-2 text-center">
+                <nav aria-label="Rechtliches" data-i18n-aria="legal" class="d-flex gap-3">
+                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://www.stura-ilmenau.de/impressum" target="_blank" rel="noopener noreferrer"><span data-i18n="imprint">Impressum</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
+                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://www.stura-ilmenau.de/datenschutz" target="_blank" rel="noopener noreferrer"><span data-i18n="privacy">Datenschutz</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
+                </nav>
+                <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="https://github.com/ref-it/qr-code-generator" target="_blank" rel="noopener noreferrer"><span data-i18n="source">Quellcode</span><span class="visually-hidden" data-i18n="newTab"> (öffnet in neuem Tab)</span></a>
             </div>
-        </div>
+        </footer>
 
+        <script type="text/javascript" src="js/i18n.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
     </body>
 </html>

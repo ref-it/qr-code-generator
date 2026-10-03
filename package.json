@@ -1,0 +1,25 @@
+{
+  "name": "qr-code-generator",
+  "version": "1.0.0",
+  "description": "A QR Code generator for self-hosting. Based on [https://github.com/datalog/qrcode-svg](https://github.com/datalog/qrcode-svg).",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ref-it/qr-code-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ref-it/qr-code-generator/issues"
+  },
+  "homepage": "https://github.com/ref-it/qr-code-generator#readme",
+  "dependencies": {
+    "@fontsource/adwaita-sans": "^5.3.0",
+    "bootstrap": "^5.3.8",
+    "lucide-static": "^1.50.0",
+    "qrcode-svg": "^1.1.0"
+  }
+}
